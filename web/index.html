@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>YouTube Volume Control by Mouse Scrolling</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Google Fonts: Inter -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      color: #333;
+    }
+    header {
+      background: #3533CD;
+      padding: 10px 20px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    header a{
+
+        color: white !important; 
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 600;
+      font-size: 1.2em;
+    }
+    nav {
+      flex: 1;
+      text-align: right;
+    }
+    nav ul {
+      list-style: none;
+    }
+    nav ul li {
+      display: inline-block;
+      margin-left: 20px;
+    }
+    nav ul li a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      padding: 8px;
+    }
+    .menu-icon {
+      display: none;
+      font-size: 24px;
+      cursor: pointer;
+      color: #333;
+    }
+    main {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 0 10px;
+    }
+    h1 {
+      font-size: 2em;
+      margin-bottom: 0.5em;
+    }
+    h2 {
+      font-size: 1.5em;
+      margin-top: 1.5em;
+      margin-bottom: 0.5em;
+    }
+    p {
+      margin-bottom: 1em;
+    }
+    ul {
+      margin: 0 0 1em 20px;
+    }
+    li {
+      margin-bottom: 0.5em;
+    }
+    footer {
+      background: #f8f8f8;
+      text-align: center;
+      padding: 10px 0;
+      border-top: 1px solid #ddd;
+      margin-top: 40px;
+    }
+    footer p {
+      color: #666;
+      font-size: 0.9em;
+    }
+    /* Responsive menu */
+    @media (max-width: 600px) {
+      .container {
+        flex-wrap: wrap;
+      }
+      .logo {
+        margin-bottom: 10px;
+      }
+      nav {
+        width: 100%;
+        display: none;
+      }
+      nav ul li {
+        display: block;
+        margin: 10px 0;
+      }
+      .menu-icon {
+        display: block;
+      }
+      .nav-responsive {
+        display: block;
+      }
+    }
+
+    .coffee-button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      background-color: #ff813f;
+      color: white;
+      text-align: center;
+      font-size: 16px;
+      border-radius: 5px;
+      border: none;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    .coffee-button:hover {
+      background-color: #ff6f1f;
+    }
+
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="logo">
+        <a href="index.html">YouTube Volume Control </a>
+      </div>
+      <nav id="nav-menu" class="">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="support.html">Support</a></li>
+          <li><a href="privacy.html">Privacy</a></li>
+        
+        </ul>
+      </nav>
+      <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
+    </div>
+  </header>
+  <main>
+    
+    <h1>YouTube Volume Control by Mouse Scrolling</h1>
+    <p>The <strong>YouTube Volume Control by Mouse Scrolling</strong> extension lets you adjust the volume of any YouTube video using your mouse wheel. Simply hover over the video player and scroll up or down to increase or decrease the volume. A brief on-screen overlay will display the current volume level when you make an adjustment.</p>
+    <h2>How It Works</h2>
+    <p>After installation, the extension injects a script into YouTube pages that listens for mouse wheel events on video players. When you scroll, it intercepts the event and adjusts the video's volume accordingly. You can click the extension icon to access settings, where you can change the volume step size and toggle the visual overlay. The extension also works in private browsing mode and supports both regular YouTube and YouTube Music.</p>
+    <h2>Key Features</h2>
+    <ul>
+      <li><strong>Scroll-to-Volume Control</strong>: Adjust the volume using your mouse wheel instead of on-screen controls.</li>
+      <li><strong>On-Screen Volume Indicator</strong>: See a volume percentage overlay when you change the volume.</li>
+      <li><strong>Customizable Steps</strong>: Configure how much the volume changes per scroll step (fine or coarse adjustments).</li>
+      <li><strong>Works Everywhere on YouTube</strong>: Supports youtube.com, music.youtube.com, and embedded YouTube videos on other sites.</li>
+      <li><strong>Persistent Settings</strong>: Remembers your volume settings and preferences across sessions and in incognito mode.</li>
+    </ul>
+
+    <br>
+    <button class="coffee-button" onclick="window.open('https://buymeacoffee.com/takeyourservice', '_blank')">
+        <i class="fas fa-mug-hot"></i> Buy Me a Coffee
+      </button><br>
+  </main>
+  <footer>
+    <p>&copy; 2025 YouTube Volume Scroll Extension. All rights reserved.</p>
+  </footer>
+  <script>
+    function toggleMenu() {
+      var menu = document.getElementById("nav-menu");
+      if (menu.className === "") {
+        menu.className = "nav-responsive";
+      } else {
+        menu.className = "";
+      }
+    }
+  </script>
+</body>
+</html>
