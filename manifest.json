@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "YouTube Volume Control by Mouse Scrolling",
-  "version": "5.0.0",
+  "version": "10.0.0",
   "description": "Use your mouse scroll to adjust the volume on YouTube and other HTML5 video players.",
   "permissions": [],
   "host_permissions": [
