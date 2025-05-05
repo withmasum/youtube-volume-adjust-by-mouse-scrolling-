@@ -18,7 +18,6 @@ function createOverlay() {
 
 let overlay = createOverlay();
 
-// Reposition overlay in fullscreen mode
 function appendOverlay() {
   const fsElement = document.fullscreenElement;
   if (fsElement) {
@@ -27,9 +26,9 @@ function appendOverlay() {
     document.body.appendChild(overlay);
   }
 }
+
 document.addEventListener('fullscreenchange', appendOverlay);
 
-// Volume control handler
 function adjustVolumeWithScroll(video) {
   if (video.dataset.volumeScrollAdded === "true") return;
   video.dataset.volumeScrollAdded = "true";
@@ -60,33 +59,30 @@ function adjustVolumeWithScroll(video) {
   );
 }
 
-// Scan and apply to all video elements
-function findVideoElements() {
+function scanForVideos() {
   const videos = document.querySelectorAll('video');
   videos.forEach(adjustVolumeWithScroll);
 
   const iframes = document.querySelectorAll('iframe');
+
   iframes.forEach((iframe, index) => {
     try {
-      const iframeDoc = iframe.contentDocument || iframe.contentWindow?.document;
+      const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
       if (!iframeDoc) return;
 
       const iframeVideos = iframeDoc.querySelectorAll('video');
       iframeVideos.forEach(adjustVolumeWithScroll);
     } catch (e) {
-      // Cross-origin iframe: cannot access due to browser restrictions.
-      // Warning suppressed for cleaner console.
+      console.warn(`Skipped cross-origin iframe [${iframe.src}] (#${index})`);
     }
   });
 }
 
-// Initialize on page load
 window.addEventListener('load', () => {
-  findVideoElements();
+  scanForVideos();
 
-  // Observe DOM changes to handle dynamic content
   const observer = new MutationObserver(() => {
-    findVideoElements();
+    scanForVideos();
   });
 
   observer.observe(document.body, {

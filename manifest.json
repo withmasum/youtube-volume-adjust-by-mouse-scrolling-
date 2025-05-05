@@ -1,24 +1,24 @@
 {
   "manifest_version": 3,
   "name": "YouTube Volume Control by Mouse Scrolling",
-  "version": "10.0.0",
-  "description": "Use your mouse scroll to adjust the volume on YouTube and other HTML5 video players.",
+  "version": "10.1.0",
+  "description": "Use your mouse scroll to adjust the volume on YouTube and other video players.",
   "permissions": [],
   "host_permissions": [
     "*://*.youtube.com/*",
     "*://*.vimeo.com/*",
-    "*://*.facebook.com/*",
-    "*://*.xvideos.com/*",
-    "*://*.pornhub.com/*",
-    "*://*.dailymotion.com/*",
-    "*://*/*"
+    "*://*.dailymotion.com/*"
   ],
   "content_scripts": [
     {
-      "matches": ["<all_urls>"],
+      "matches": [
+        "*://*.youtube.com/*",
+        "*://*.vimeo.com/*",
+        "*://*.dailymotion.com/*"
+      ],
       "js": ["content.js"],
       "run_at": "document_idle",
-      "all_frames": true
+      "all_frames": false
     }
   ],
   "icons": {
